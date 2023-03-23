@@ -97,7 +97,7 @@ def dfs_csp(position_number, cumulative_state, solution_path, matrix):
         # Sorting the domain in the reverse order
         sorted_domain = sorted(domain, key=lambda f: len([v for v in f(matrix[position_number]).values() if v > 0]), reverse=False)
         # iterate through the possible functions to apply to the current state
-        for function in [l_shape, outer_block, full_block]:
+        for function in sorted_domain:
             
             # append the name of the current function to the solution_path list
             solution_path.append(function.__name__)
